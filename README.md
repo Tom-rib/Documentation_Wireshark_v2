@@ -1,65 +1,88 @@
-# 📡 Projet d'Analyse Réseau avec Wireshark et Tshark
+# 📡 WireShark v2 – Analyse réseau & Automatisation
 
-Ce projet explore les fondamentaux de l'analyse réseau à travers Wireshark et Tshark, en couvrant le modèle OSI, les protocoles clés, et l'automatisation des captures.
-
----
-
-## 📚 Sommaire
-
-### [Partie 1 : Initiation à Wireshark et Modèle OSI](#partie-1--initiation-à-wireshark-et-modèle-osi)
-1. [Présentation de Wireshark](#présentation-de-wireshark)
-2. [Concepts de base (Trame, Paquet, PCAP/PCAPNG)](#concepts-de-base)
-3. [Pratique avec Wireshark (ARP/UDP/TCP, Désencapsulation OSI)](#pratique-avec-wireshark)
-4. [Analyse des en-têtes (MAC/IP, Spécifications ARP/UDP/TCP)](#analyse-des-en-têtes)
-5. [Mécanisme TCP (Three-Way Handshake)](#mécanisme-tcp)
-
-### [Partie 2 : Capture Ciblée de Protocoles](#partie-2--capture-ciblée-de-protocoles)
-1. [Lab réseau avec 2 VM](#lab-réseau)
-2. [Analyse des protocoles (DHCP, DNS, FTP, HTTPS...)](#analyse-des-protocoles)
-3. [Sauvegarde des paquets](#sauvegarde-des-paquets)
-
-### [Partie 3 : Automatisation avec Tshark](#partie-3--automatisation-avec-tshark)
-1. [Installation de Tshark](#installation-tshark)
-2. [Commandes avancées](#commandes-tshark)
-3. [Traitement des données](#traitement-des-données)
+Ce dépôt contient un cours complet sur l'analyse réseau avec **Wireshark** et **TShark**, depuis les bases jusqu’à l’automatisation de la capture et du traitement des paquets réseau.
 
 ---
 
-## 🛠️ Prérequis
-- **Wireshark** : [Guide d'installation](https://www.wireshark.org/docs/wsug_html_chunked/ChapterBuildInstall.html)
-- **Machine Linux** (ou VM)  
-- **Accès root** (`sudo`)  
+## 🗂️ Sommaire
+
+### Partie 1 : Initiation à Wireshark et Modèle OSI
+1. [Présentation de Wireshark](#1-présentation-de-wireshark)  
+2. [Concepts de base (Trame, Paquet, Fichier de capture)](#2-concepts-de-base-trame-paquet-fichier-de-capture)  
+3. [Pratique avec Wireshark (ARP, UDP, TCP)](#3-pratique-avec-wireshark-arp-udp-tcp)  
+4. [Analyse des en-têtes (MAC/IP, ARP, UDP, TCP)](#4-analyse-des-en-têtes-macip-arp-udp-tcp)  
+5. [Connexion TCP (Diagramme des étapes)](#5-connexion-tcp-diagramme-des-étapes)
+
+### Partie 2 : Capture Ciblée de Protocoles
+1. [Lab Réseau avec 2 VM (NAT)](#1-lab-réseau-avec-2-vm-nat)  
+2. [Capture et analyse des protocoles](#2-capture-et-analyse-des-protocoles)  
+3. [Sauvegarde des paquets pertinents](#3-sauvegarde-des-paquets-pertinents)
+
+### Partie 3 : Automatisation avec TShark
+1. [Installation et prise en main](#1-installation-et-prise-en-main)  
+2. [Commandes de capture avancées](#2-commandes-de-capture-avancées)  
+3. [Redirection et traitement des données](#3-redirection-et-traitement-des-données)
 
 ---
 
 ## Partie 1 : Initiation à Wireshark et Modèle OSI
 
-### Présentation de Wireshark
-Outil open-source d'analyse de paquets.  
-📖 [Documentation officielle](https://www.wireshark.org/docs/)  
+### 1. Présentation de Wireshark
+Introduction à l'outil Wireshark, son interface graphique, et ses fonctionnalités principales.
 
-### Concepts de base
-- **Trame** (L2) vs **Paquet** (L3)  
-- **PCAP/PCAPNG** : Formats de capture.  
-🔍 [Explications détaillées](#concepts-de-base)
+### 2. Concepts de base (Trame, Paquet, Fichier de capture)
+Explication des notions fondamentales du réseau : trames, paquets, segments et fichiers `.pcap`.
 
-### Pratique avec Wireshark
-- Capture de :
-  - **ARP** : `arp`  
-  - **UDP** : `udp.port == 53` (DNS)  
-  - **TCP** : `tcp.port == 80` (HTTP)  
-🎥 [Tutoriel vidéo](#pratique-avec-wireshark)
+### 3. Pratique avec Wireshark (ARP, UDP, TCP)
+Captures en temps réel de protocoles réseau comme ARP, UDP et TCP. Visualisation du trafic dans Wireshark.
 
-### Analyse des en-têtes
-| Champ          | Exemple (ARP)       |
-|----------------|---------------------|
-| MAC Source     | `00:1a:2b:3c:4d:5e` |
-| IP Destination | `192.168.1.1`       |  
-📊 [Exemples complets](#analyse-des-en-têtes)
+### 4. Analyse des en-têtes (MAC/IP, ARP, UDP, TCP)
+Décomposition des paquets pour examiner les en-têtes des couches 2 à 4 (adresse MAC, IP, ports, etc.).
 
-### Mécanisme TCP
-```mermaid
-sequenceDiagram
-    Client->>Serveur: SYN
-    Serveur->>Client: SYN-ACK
-    Client->>Serveur: ACK
+### 5. Connexion TCP (Diagramme des étapes)
+Étude du **handshake TCP** (SYN, SYN-ACK, ACK) à l’aide d’un diagramme de séquence et d’une capture réseau.
+
+---
+
+## Partie 2 : Capture Ciblée de Protocoles
+
+### 1. Lab Réseau avec 2 VM (NAT)
+Mise en place d’un environnement de test avec deux machines virtuelles en NAT (client/serveur).
+
+### 2. Capture et analyse des protocoles
+Observation et analyse du comportement des protocoles :
+- **DHCP** (attribution d’adresse IP)
+- **DNS** / **mDNS**
+- **FTP** (fichiers)
+- **SMB** (partage Windows)
+- **HTTPS / TLS v1.2** (chiffrement)
+
+### 3. Sauvegarde des paquets pertinents
+Exportation des paquets capturés au format `.pcap` pour documentation ou analyse ultérieure.
+
+---
+
+## Partie 3 : Automatisation avec TShark
+
+### 1. Installation et prise en main
+Installation de TShark, version en ligne de commande de Wireshark, sur Linux ou Windows.
+
+### 2. Commandes de capture avancées
+Utilisation de filtres BPF, sélection d’interface, capture conditionnelle, durée ou taille.
+
+### 3. Redirection et traitement des données
+Redirection de la sortie (`JSON`, `text`, etc.) vers des fichiers ou des scripts pour exploitation automatisée.
+
+---
+
+## 🔗 Liens utiles
+
+- 🌐 [Wireshark – Site officiel](https://www.wireshark.org/)  
+- 📄 [TShark – Documentation](https://www.wireshark.org/docs/man-pages/tshark.html)  
+- 📘 [Modèle OSI – Wikipedia](https://fr.wikipedia.org/wiki/Mod%C3%A8le_OSI)  
+- 🧪 [Filtres d'affichage Wireshark](https://wiki.wireshark.org/DisplayFilters)
+
+---
+
+
+
