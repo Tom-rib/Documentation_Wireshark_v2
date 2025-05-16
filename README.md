@@ -6,12 +6,16 @@ Ce dépôt contient un cours complet sur l'analyse réseau avec **Wireshark** et
 
 ## 🗂️ Sommaire
 
-### Partie 1 : Initiation à Wireshark et Modèle OSI
+### Partie 0 : Introduction
+
 1. [Présentation de Wireshark](#1-présentation-de-wireshark)  
 2. [Concepts de base (Trame, Paquet, Fichier de capture)](#2-concepts-de-base-trame-paquet-fichier-de-capture)  
-3. [Pratique avec Wireshark (ARP, UDP, TCP)](#3-pratique-avec-wireshark-arp-udp-tcp)  
-4. [Analyse des en-têtes (MAC/IP, ARP, UDP, TCP)](#4-analyse-des-en-têtes-macip-arp-udp-tcp)  
-5. [Connexion TCP (Diagramme des étapes)](#5-connexion-tcp-diagramme-des-étapes)
+
+### Partie 1 : Initiation à Wireshark et Modèle OSI sur L'Alcazar
+
+1. [Pratique avec Wireshark (ARP, UDP, TCP)](#1-pratique-avec-wireshark-arp-udp-tcp)  
+2. [Analyse des en-têtes (MAC/IP, ARP, UDP, TCP)](#2-analyse-des-en-têtes-macip-arp-udp-tcp)  
+3. [Connexion TCP (Diagramme des étapes)](#3-connexion-tcp-diagramme-des-étapes)
 
 ### Partie 2 : Capture Ciblée de Protocoles
 1. [Lab Réseau avec 2 VM (NAT)](#1-lab-réseau-avec-2-vm-nat)  
@@ -25,7 +29,7 @@ Ce dépôt contient un cours complet sur l'analyse réseau avec **Wireshark** et
 
 ---
 
-## Partie 1 : Initiation à Wireshark et Modèle OSI
+## Partie 0 : Introduction
 
 ### 1. Présentation de Wireshark
 Introduction à l'outil Wireshark, son interface graphique, et ses fonctionnalités principales.
@@ -33,13 +37,16 @@ Introduction à l'outil Wireshark, son interface graphique, et ses fonctionnalit
 ### 2. Concepts de base (Trame, Paquet, Fichier de capture)
 Explication des notions fondamentales du réseau : trames, paquets, segments et fichiers `.pcap`.
 
-### 3. Pratique avec Wireshark (ARP, UDP, TCP)
+
+## Partie 1 : Initiation à Wireshark et Modèle OSI
+
+### 1. Pratique avec Wireshark (ARP, UDP, TCP)
 Captures en temps réel de protocoles réseau comme ARP, UDP et TCP. Visualisation du trafic dans Wireshark.
 
-### 4. Analyse des en-têtes (MAC/IP, ARP, UDP, TCP)
+### 2. Analyse des en-têtes (MAC/IP, ARP, UDP, TCP)
 Décomposition des paquets pour examiner les en-têtes des couches 2 à 4 (adresse MAC, IP, ports, etc.).
 
-### 5. Connexion TCP (Diagramme des étapes)
+### 3. Connexion TCP (Diagramme des étapes)
 Étude du **handshake TCP** (SYN, SYN-ACK, ACK) à l’aide d’un diagramme de séquence et d’une capture réseau.
 
 ---
