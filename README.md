@@ -59,10 +59,12 @@ Mise en place d’un environnement de test avec deux machines virtuelles en NAT 
 ### 2. Capture et analyse des protocoles
 Observation et analyse du comportement des protocoles :
 - **DHCP** (attribution d’adresse IP)
-- **DNS** / **mDNS**
+- **DNS** 
+-  **mDNS**
 - **FTP** (fichiers)
+- **SFTP** (fichiers)
 - **SMB** (partage Windows)
-- **HTTPS / TLS v1.2** (chiffrement)
+- **HTTPS / TLS v1.2/1.3** (chiffrement)
 
 ### 3. Sauvegarde des paquets pertinents
 Exportation des paquets capturés au format `.pcap` pour documentation ou analyse ultérieure.
